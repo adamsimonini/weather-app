@@ -55,7 +55,7 @@
 
 ## About
 
-[![Product Name Screen Shot][product-screenshot]](https://adamsimonini.ca)
+[![Product Name Screen Shot][product-screenshot]](https://tvo-weather-app.netlify.app/)
 
 Thank you for checkout out my personal portfolio website. It's custom made. I utilized React to dynamically create project cards based on a JSON file called "projects.js". Although animations are often not best for most websites, I wanted to take the time here to do a few.
 
@@ -186,7 +186,7 @@ Project Link: [https://github.com/adamsimonini/weather-app](https://github.com/a
 
 <!-- SCREENSHOT -->
 
-[product-screenshot]: src/assets/images/portfolio-pieces/adam-simonini.png
+[product-screenshot]: src/assets/screenshot.png
 
 <!-- TECH BADGES -->
 
