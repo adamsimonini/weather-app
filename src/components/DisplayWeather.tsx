@@ -22,16 +22,16 @@ export default function CitySelector(props: any) {
 	return (
 		<section style={styles.container}>
 			{!!data && (
-				<div>
+				<div style={styles.weather}>
 					<img src={`https://openweathermap.org/img/wn/${(data as any).weather?.[0]?.icon}@2x.png`} alt="Logo" />
 					<div>
 						<b>Temperature</b>: {(data as any).main?.temp || "No temperature information available"} °C
 					</div>
 					<div>
-						<b>Feels like </b>: {(data as any).main?.feels_like || "No temperature information available"} °C
+						<b>Feels like</b>: {(data as any).main?.feels_like || "No temperature information available"} °C
 					</div>
 					<div>
-						<b>Sky </b>: {(data as any).weather?.[0]?.main || "No sky information available"}
+						<b>Sky</b>: {(data as any).weather?.[0]?.main || "No sky information available"}
 					</div>
 				</div>
 			)}
@@ -50,5 +50,8 @@ const styles = {
 	},
 	citySearch: {
 		marginright: 10
+	},
+	weather: {
+		fontSize: 25
 	}
 };
