@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import SunIcon from "@mui/icons-material/WbSunny";
 import * as API from "./API";
 import "./App.css";

@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import * as API from "../API";
-import { Button, TextField, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Box } from "@mui/material";
-import GlobeIcon from "@mui/icons-material/Public";
 
 export default function CitySelector(props: any) {
 	const [data, setData] = useState(null);
