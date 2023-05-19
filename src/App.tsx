@@ -1,36 +1,34 @@
 import React, { useState, useEffect } from "react";
+import SunIcon from "@mui/icons-material/WbSunny";
 import * as API from "./API";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
 import "./App.css";
-import Button from "@mui/material/Button";
 import CitySelect from "./components/CitySelect";
+import DisplayWeather from "./components/DisplayWeather";
 
-function App() {
+interface coordinates {
+	lat: number;
+	lon: number;
+}
+
+export default function App() {
 	const [cityCoordinates, setCityCoordinates] = useState({});
 
-	const getWeather = async (city: string) => {
-		// API.getWeatherForLatLon(lat, lon);
-	};
-
-	const captureCoordinates = (coordinates: { lat: number; lon: number }) => {
+	const captureCoordinates = (coordinates: coordinates) => {
 		setCityCoordinates(coordinates);
 	};
 
 	useEffect(() => {
-		API.getWeatherForLatLon(cityCoordinates);
+		// ensure that cityCoordinates has a lat property before attempting API call
+		if (cityCoordinates.lat) API.getWeatherForLatLon(cityCoordinates);
 	}, [cityCoordinates]);
 
 	return (
 		<>
-			<h1>Weather App</h1>
-			<div className="card"></div>
+			<h1>
+				Weather App <SunIcon />
+			</h1>
 			<CitySelect captureCoordinates={captureCoordinates} />
-			<Button onClick={() => false} variant="contained">
-				False
-			</Button>
+			<DisplayWeather coordinates={cityCoordinates} />
 		</>
 	);
 }
-
-export default App;
