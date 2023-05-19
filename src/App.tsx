@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
+import SunIcon from "@mui/icons-material/WbSunny";
 import * as API from "./API";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
 import "./App.css";
-import Button from "@mui/material/Button";
 import CitySelect from "./components/CitySelect";
+import DisplayWeather from "./components/DisplayWeather";
 
 interface coordinates {
 	lat: number;
@@ -25,12 +24,11 @@ export default function App() {
 
 	return (
 		<>
-			<h1>Weather App</h1>
-			<div className="card"></div>
+			<h1>
+				Weather App <SunIcon />
+			</h1>
 			<CitySelect captureCoordinates={captureCoordinates} />
-			<Button onClick={() => false} variant="contained">
-				False
-			</Button>
+			<DisplayWeather coordinates={cityCoordinates} />
 		</>
 	);
 }
