@@ -6,19 +6,21 @@ import "./App.css";
 import Button from "@mui/material/Button";
 import CitySelect from "./components/CitySelect";
 
-function App() {
+interface coordinates {
+	lat: number;
+	lon: number;
+}
+
+export default function App() {
 	const [cityCoordinates, setCityCoordinates] = useState({});
 
-	const getWeather = async (city: string) => {
-		// API.getWeatherForLatLon(lat, lon);
-	};
-
-	const captureCoordinates = (coordinates: { lat: number; lon: number }) => {
+	const captureCoordinates = (coordinates: coordinates) => {
 		setCityCoordinates(coordinates);
 	};
 
 	useEffect(() => {
-		API.getWeatherForLatLon(cityCoordinates);
+		// ensure that cityCoordinates has a lat property before attempting API call
+		if (cityCoordinates.lat) API.getWeatherForLatLon(cityCoordinates);
 	}, [cityCoordinates]);
 
 	return (
@@ -32,5 +34,3 @@ function App() {
 		</>
 	);
 }
-
-export default App;

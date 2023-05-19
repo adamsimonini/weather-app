@@ -5,6 +5,7 @@ interface coordinates {
 	lon: number;
 }
 
+// gets the weather for a given latitue and longitude
 export const getWeatherForLatLon = async ({ lat, lon }: coordinates): Promise<any> => {
 	try {
 		console.log(lat);
@@ -17,6 +18,7 @@ export const getWeatherForLatLon = async ({ lat, lon }: coordinates): Promise<an
 	}
 };
 
+// gets city data for a city name
 export const getCityLatLon = async (city: string): Promise<any> => {
 	try {
 		const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${weatherAPIKey}`);
