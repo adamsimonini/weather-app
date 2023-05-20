@@ -57,7 +57,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://tvo-weather-app.netlify.app/)
 
-Thank you for checkout out my personal portfolio website. It's custom made. I utilized React to dynamically create project cards based on a JSON file called "projects.js". Although animations are often not best for most websites, I wanted to take the time here to do a few.
+This weather application was produced in a day as part of an interview process. Simply input a city name, click "search for city", and you'll be provided with a list of up to 5 cities as a response. Select 1 of the 5 cities to get the weather for that location.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
