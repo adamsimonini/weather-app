@@ -10,7 +10,6 @@ export default function CitySelector(props: any) {
 				try {
 					const weatherData = await API.getWeatherForLatLon(props.coordinates);
 					setData(weatherData);
-					console.log(weatherData);
 				} catch (error) {
 					console.log("Error:", error);
 				}

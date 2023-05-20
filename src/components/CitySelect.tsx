@@ -1,7 +1,19 @@
 import React, { useState, useRef } from "react";
 import * as API from "../API";
-import { Button, TextField, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Box } from "@mui/material";
+import { Button, TextField, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Grid } from "@mui/material";
 import GlobeIcon from "@mui/icons-material/Public";
+import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
+
+const Item = styled(Paper)(({ theme }) => ({
+	backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+	...theme.typography.body2,
+	border: "none",
+	boxShadow: "unset",
+	padding: theme.spacing(1),
+	textAlign: "center",
+	color: theme.palette.text.secondary
+}));
 
 export default function CitySelector(props: any) {
 	const [cityInput, setCityInput] = useState("");
@@ -21,12 +33,20 @@ export default function CitySelector(props: any) {
 	return (
 		<section style={styles.container}>
 			<h3>Find city</h3>
-			<Box gap={3} style={styles.searchField}>
-				<TextField id="city" label="Enter city name" variant="standard" onChange={event => setCityInput(event.target.value.toLowerCase())} />
-				<Button onClick={() => findCity()} variant="contained" disabled={!cityInput}>
-					Search for city <GlobeIcon />
-				</Button>
-			</Box>
+			<Grid container spacing={2} style={styles.searchField}>
+				<Grid xs={12} sm={6}>
+					<Item>
+						<TextField id="city" label="Enter city name" variant="standard" onChange={event => setCityInput(event.target.value.toLowerCase())} />
+					</Item>
+				</Grid>
+				<Grid xs={12} sm={6} style={styles.citySearch}>
+					<Item>
+						<Button onClick={() => findCity()} variant="contained" disabled={!cityInput}>
+							Search for city <GlobeIcon />
+						</Button>
+					</Item>
+				</Grid>
+			</Grid>
 			{!!cityList && cityList.length > 0 && (
 				<List>
 					{cityList.map((city, i) => {
@@ -68,6 +88,6 @@ const styles = {
 		alignItems: "flex-end"
 	},
 	citySearch: {
-		marginright: 10
+		marginTop: 10
 	}
 };
